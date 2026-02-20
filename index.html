@@ -15,20 +15,20 @@
       text-align: center;
     }
 
+    /* links with no underline */
     a {
-      text-decoration: none;
-      color: #0000FF;
-      border-bottom: 1px solid #0000FF;
+      text-decoration: none; /* remove underline */
+      color: #0000FF;        /* keep color */
+      border-bottom: none;   /* remove previous border underline */
     }
 
     a:hover {
       color: #0000FF;
-      border-color: #0000FF;
+      border-bottom: none;
     }
 
     header {
       margin-bottom: 3em;
-      text-decoration: none;
     }
 
     h1 {
@@ -81,21 +81,13 @@
       z-index: 1;
       pointer-events: none;
     }
-    .home-link {
-  text-decoration: none;
-  color: #0000FF;
-}
-
-.home-link:hover {
-  color: #0000FF;
-}
   </style>
 </head>
 <body>
 
 <header>
   <h1>
-    <a href="index.html" class="home-link">creepy winky house</a>
+    <a href="index.html">creepy winky house</a>
   </h1>
   <nav>
     <a href="about.html">About</a>
@@ -113,7 +105,6 @@
     </div>
     <div class="post-date">2/20/2026</div>
   </div>
-
 </main>
 
 <img
