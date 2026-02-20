@@ -15,15 +15,16 @@
       text-align: center;
     }
 
+    /* all links with no underline */
     a {
-      text-decoration: none;
-      color: #0000FF;
-      border-bottom: 1px solid #0000FF;
+      text-decoration: none; /* remove underline */
+      color: #0000FF;        /* keep color */
+      border-bottom: none;   /* remove previous border underline */
     }
 
     a:hover {
       color: #0000FF;
-      border-color: #0000FF;
+      border-bottom: none;
     }
 
     header {
@@ -65,7 +66,9 @@
 <body>
 
 <header>
-  <h1>creepy winky house</h1>
+  <h1>
+    <a href="index.html">creepy winky house</a>
+  </h1>
   <nav>
     <a href="about.html">About</a>
     <a href="submit.html">Submit</a>
