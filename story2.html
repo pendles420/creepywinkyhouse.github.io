@@ -65,18 +65,19 @@
 
     .story {
       font-size: 14px;
-      line-height: 1.9;
-      letter-spacing: 0.3px;
+      line-height: 1.8;
+      letter-spacing: 0.2px;
     }
 
-    /* Book-style formatting */
+    /* PRINT-STYLE INDENTATION */
     .story p {
-      margin: 0;
-      text-indent: 2em;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-indent: 3em !important;  /* strong visible indent */
     }
 
-    .story p:first-of-type {
-      text-indent: 0;
+    .story p:first-child {
+      text-indent: 0 !important;
     }
 
     footer {
@@ -105,7 +106,7 @@
 
       .story {
         font-size: 13.5px;
-        line-height: 1.85;
+        line-height: 1.75;
       }
     }
   </style>
