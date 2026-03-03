@@ -4,6 +4,7 @@
   <link rel="icon" type="image/png" href="https://i.ibb.co/v6fGrWk8/creepy.png">
   <meta charset="UTF-8">
   <title>creepy winky house</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Helvetica, Arial, sans-serif;
@@ -14,13 +15,13 @@
       letter-spacing: 0.2px;
       color: #111;
       text-align: center;
+      padding: 0 20px;
     }
 
-    /* links with no underline */
     a {
-      text-decoration: none; /* remove underline */
-      color: #0000FF;        /* keep color */
-      border-bottom: none;   /* remove previous border underline */
+      text-decoration: none;
+      color: #0000FF;
+      border-bottom: none;
     }
 
     a:hover {
@@ -51,28 +52,29 @@
       margin-bottom: 2.2em;
     }
 
-    .post-date {
-      font-size: 10px;
-      font-weight: 300;
-      text-transform: lowercase;
-      color: #2E2E2E;
-      letter-spacing: 0.8px;
-    }
-
     .post-title {
       font-size: 18px;
       font-weight: 300;
-      margin: 0.35em 0 0 0;
+      margin: 0;
+      line-height: 1.4;
     }
 
     .post-author {
       font-size: 13px;
       font-weight: 300;
       color: #000;
-      margin-top: 0.25em;
+      margin-top: 2px; /* closer to title */
     }
 
-    /* static creepy image */
+    .post-date {
+      font-size: 10px;
+      font-weight: 300;
+      text-transform: lowercase;
+      color: #2E2E2E;
+      letter-spacing: 0.8px;
+      margin-top: 6px;
+    }
+
     .creepy-image {
       position: absolute;
       left: 200px;
@@ -81,6 +83,21 @@
       height: auto;
       z-index: 1;
       pointer-events: none;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .post-title {
+        font-size: 18px; /* force consistent size */
+      }
+
+      .creepy-image {
+        display: none; /* optional: prevents overlap on small screens */
+      }
     }
   </style>
 </head>
@@ -98,17 +115,17 @@
 
 <main>
 
-<div class="post">
+  <div class="post">
     <div class="post-title">
       <a href="poem1.html">EACH MORNING IS ALL MORNINGS</a>
     </div>
     <div class="post-author">
       by rob brezsny
     </div>
-    
     <div class="post-date">
-    march 2nd, 2026
-   
+      march 2nd, 2026
+    </div>
+  </div>
 
   <div class="post">
     <div class="post-title">
@@ -117,11 +134,12 @@
     <div class="post-author">
       by brock bierly
     </div>
-    
-     <div class="post-date">
-    february 27th, 2026
-  
-<div class="post">
+    <div class="post-date">
+      february 27th, 2026
+    </div>
+  </div>
+
+  <div class="post">
     <div class="post-title">
       <a href="story2.html">Tennis Paradise</a>
     </div>
@@ -129,8 +147,10 @@
       by marielle depp
     </div>
     <div class="post-date">
-    february 23rd, 2026
-  
+      february 23rd, 2026
+    </div>
+  </div>
+
   <div class="post">
     <div class="post-title">
       <a href="story1.html">Safdie (intro)</a>
@@ -138,8 +158,11 @@
     <div class="post-author">
       by bernard cohen
     </div>
-     <div class="post-date">
-    february 20th, 2026
+    <div class="post-date">
+      february 20th, 2026
+    </div>
+  </div>
+
 </main>
 
 <img
