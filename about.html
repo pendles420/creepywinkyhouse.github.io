@@ -6,6 +6,8 @@
   <title>creepy winky house — about</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    html { overflow-y: scroll; }
+
     body {
       font-family: Helvetica, Arial, sans-serif;
       font-weight: 300;
@@ -15,63 +17,26 @@
       letter-spacing: 0.2px;
       color: #111;
       text-align: center;
-      padding: 0 20px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #0000FF;
-      border-bottom: none;
-    }
-
-    a:hover {
-      color: #0000FF;
-      border-bottom: none;
-    }
-
-    header {
-      margin-bottom: 3em; /* same compact height */
       padding: 0;
-      text-align: center;
     }
 
-    h1 {
-      font-size: 48px;
-      font-weight: 300;
-      margin: 0 0 0.2em 0;
-      color: #0000FF;
-    }
+    a { text-decoration: none; color: #0000FF; border-bottom: none; }
+    a:hover { color: #0000FF; border-bottom: none; }
 
-    nav a {
-      margin: 0 14px;
-      font-size: 14px;
-      font-weight: 300;
-      text-transform: lowercase;
-      letter-spacing: 1px;
-    }
+    header { margin-bottom: 3em; padding: 0; text-align: center; }
+    h1 { font-size: 48px; font-weight: 300; margin: 0 0 0.2em 0; color: #0000FF; }
+    nav a { margin: 0 14px; font-size: 14px; font-weight: 300; text-transform: lowercase; letter-spacing: 1px; }
 
-    .about-text {
-      font-size: 12px;
-      margin-top: 2em;
-    }
+    .content-wrapper { padding: 0 20px; }
+    .about-text { font-size: 12px; margin-top: 2em; }
 
-    .creepy-image {
-      position: fixed;
-      left: 200px;
-      bottom: 180px;
-      width: 300px;
-      height: auto;
-      z-index: 1;
-      pointer-events: none;
-    }
+    .creepy-image { position: fixed; left: 200px; bottom: 180px; width: 300px; height: auto; z-index: 1; pointer-events: none; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>
-    <a href="index.html">creepy winky house</a>
-  </h1>
+  <h1><a href="index.html">creepy winky house</a></h1>
   <nav>
     <a href="about.html">About</a>
     <a href="submit.html">Submit</a>
@@ -79,18 +44,14 @@
   </nav>
 </header>
 
-<main>
+<main class="content-wrapper">
   <div class="about-text">
-    creepy winky house is an online publication edited by <a href="https://chriscarroll.uk/">Chris Carroll</a>. it started in 2026. it is in new york. it features young, new, and old writers. it features short stories, poetry, and nonfiction. 
+    creepy winky house is an online publication edited by <a href="https://chriscarroll.uk/">Chris Carroll</a>. it started in 2026. it is in new york. it features young, new, and old writers. it features short stories, poetry, and nonfiction.
     <p><a href="https://www.instagram.com/creepywinkyhouse/">creepy winky house instagram</a></p>
   </div>
 </main>
 
-<img
-  src="https://i.ibb.co/v6fGrWk8/creepy.png"
-  alt="creepy"
-  class="creepy-image"
-/>
+<img src="https://i.ibb.co/v6fGrWk8/creepy.png" alt="creepy" class="creepy-image">
 
 </body>
 </html>
