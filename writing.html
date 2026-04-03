@@ -3,7 +3,7 @@
 <head>
   <link rel="icon" type="image/png" href="https://i.ibb.co/v6fGrWk8/creepy.png">
   <meta charset="UTF-8">
-  <title>submit — creepy winky house</title>
+  <title>writing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -77,6 +77,28 @@
       color: #bbb;
       font-weight: 300;
     }
+    #email-field {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-top: 1px solid #ddd;
+      outline: none;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.65;
+      letter-spacing: 0.2px;
+      color: #111;
+      padding: 18px 0 14px;
+      margin-bottom: 0;
+    }
+
+    #email-field::placeholder {
+      color: #bbb;
+      font-weight: 300;
+    }
+
+
 
     #publish-btn {
       display: block;
@@ -182,20 +204,27 @@
     <nav>
       <a href="about.html">About</a>
       <a href="submit.html">Submit</a>
+      <a href="writing.html">write</a>
     </nav>
   </div>
 </header>
 
 <div id="editor-wrap">
+  <input
+    type="email"
+    id="email-field"
+    placeholder="what is your email?"
+    autocomplete="email"
+  />
   <textarea
     id="editor"
-    placeholder="begin your story here."
+    placeholder="write anything."
     spellcheck="false"
     autocomplete="off"
   ></textarea>
 </div>
 
-<button id="publish-btn">publish story</button>
+<button id="publish-btn">send writing to creepy winky house</button>
 
 <div id="modal-overlay">
   <div id="modal">
@@ -246,7 +275,7 @@
       const res = await fetch('https://formspree.io/f/xdaplvgd', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ message: text })
+        body: JSON.stringify({ message: text, email: document.getElementById('email-field').value })
       });
 
       if (res.ok) {
