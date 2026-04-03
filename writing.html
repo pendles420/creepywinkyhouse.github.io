@@ -9,8 +9,7 @@
     body {
       font-family: Helvetica, Arial, sans-serif;
       font-weight: 300;
-      max-width: 680px;
-      margin: 60px auto;
+      margin: 0;
       line-height: 1.65;
       letter-spacing: 0.2px;
       color: #111;
@@ -28,8 +27,8 @@
     a:hover { color: #0000FF; }
 
     header {
-      margin: 60px auto;
-      padding: 48px 20px 32px;
+      margin: 0 auto;
+      padding: 20px 20px 16px;
     }
 
     h1 {
@@ -50,6 +49,10 @@
     #editor-wrap {
       margin-top: 2em;
       text-align: left;
+      max-width: 96vw;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
     }
 
     #editor {
@@ -174,11 +177,13 @@
 <body>
 
 <header>
-  <h1><a href="index.html">creepy winky house</a></h1>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="submit.html">Submit</a>
-  </nav>
+  <div style="max-width:680px;margin:0 auto;">
+    <h1><a href="index.html">creepy winky house</a></h1>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="submit.html">Submit</a>
+    </nav>
+  </div>
 </header>
 
 <div id="editor-wrap">
@@ -230,14 +235,34 @@
     if (e.target === modalOverlay) modalOverlay.classList.remove('open');
   });
 
-  confirmBtn.addEventListener('click', () => {
+  confirmBtn.addEventListener('click', async () => {
     const text = editor.value.trim();
     if (!text) return;
-    const subject = encodeURIComponent('story submission');
-    const body = encodeURIComponent(text);
-    window.location.href = `mailto:creepywinkyhouse@gmail.com?subject=${subject}&body=${body}`;
-    modalOverlay.classList.remove('open');
-    showToast('sent.');
+
+    confirmBtn.textContent = 'sending...';
+    confirmBtn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/xdaplvgd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ message: text })
+      });
+
+      if (res.ok) {
+        modalOverlay.classList.remove('open');
+        editor.value = '';
+        resize();
+        showToast('sent.');
+      } else {
+        showToast('something went wrong. try again.');
+      }
+    } catch (e) {
+      showToast('something went wrong. try again.');
+    }
+
+    confirmBtn.textContent = 'send it';
+    confirmBtn.disabled = false;
   });
 
   function showToast(msg) {
