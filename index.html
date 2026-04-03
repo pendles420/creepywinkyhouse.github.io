@@ -6,107 +6,47 @@
   <title>creepy winky house</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-  body {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  max-width: 680px;
-  margin: 60px auto;
-  line-height: 1.65;
-  letter-spacing: 0.2px;
-  color: #111;
-  text-align: center;
-  padding: 0 20px;
-}
+    html { overflow-y: scroll; } /* always show scrollbar */
 
-    a {
-      text-decoration: none;
-      color: #0000FF;
-      border-bottom: none;
-    }
-
-    a:hover {
-      color: #0000FF;
-      border-bottom: none;
-    }
-
-    header {
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      max-width: 680px;
       margin: 60px auto;
-      padding: 48px 20px 32px;
+      line-height: 1.65;
+      letter-spacing: 0.2px;
+      color: #111;
+      text-align: center;
+      padding: 0;
     }
 
-    h1 {
-      font-size: 48px;
-      font-weight: 300;
-      margin: 0 0 0.4em 0;
-      color: #0000FF;
-    }
+    a { text-decoration: none; color: #0000FF; border-bottom: none; }
+    a:hover { color: #0000FF; border-bottom: none; }
 
-    nav a {
-      margin: 0 14px;
-      font-size: 14px;
-      font-weight: 300;
-      text-transform: lowercase;
-      letter-spacing: 1px;
-    }
+    header { margin-bottom: 3em; padding: 0; text-align: center; }
+    h1 { font-size: 48px; font-weight: 300; margin: 0 0 0.2em 0; color: #0000FF; }
+    nav a { margin: 0 14px; font-size: 14px; font-weight: 300; text-transform: lowercase; letter-spacing: 1px; }
 
-    .post {
-      margin-bottom: 2.2em;
-    }
+    .content-wrapper { padding: 0 20px; }
 
-    .post-title {
-      font-size: 18px;
-      font-weight: 300;
-      margin: 0;
-      line-height: 1.4;
-    }
+    .post { margin-bottom: 2.2em; }
+    .post-title { font-size: 18px; font-weight: 300; margin: 0; line-height: 1.4; }
+    .post-author { font-size: 13px; font-weight: 300; color: #000; margin-top: 2px; }
+    .post-date { font-size: 10px; font-weight: 300; text-transform: lowercase; color: #2E2E2E; letter-spacing: 0.8px; margin-top: 6px; }
 
-    .post-author {
-      font-size: 13px;
-      font-weight: 300;
-      color: #000;
-      margin-top: 2px;
-    }
-
-    .post-date {
-      font-size: 10px;
-      font-weight: 300;
-      text-transform: lowercase;
-      color: #2E2E2E;
-      letter-spacing: 0.8px;
-      margin-top: 6px;
-    }
-
-    .creepy-image {
-      position: absolute;
-      left: 200px;
-      bottom: 180px;
-      width: 300px;
-      height: auto;
-      z-index: 1;
-      pointer-events: none;
-    }
+    .creepy-image { position: fixed; left: 200px; bottom: 180px; width: 300px; height: auto; z-index: 1; pointer-events: none; }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 36px;
-      }
-
-      .post-title {
-        font-size: 18px;
-      }
-
-      .creepy-image {
-        display: none;
-      }
+      h1 { font-size: 36px; }
+      .post-title { font-size: 18px; }
+      .creepy-image { display: none; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>
-    <a href="index.html">creepy winky house</a>
-  </h1>
+  <h1><a href="index.html">creepy winky house</a></h1>
   <nav>
     <a href="about.html">About</a>
     <a href="submit.html">Submit</a>
@@ -114,123 +54,20 @@
   </nav>
 </header>
 
-<main>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="nonfiction1.html">remembering reels</a>
-    </div>
-    <div class="post-author">
-      by agatha scaggiante
-    </div>
-    <div class="post-date">
-      april 3rd, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="poem4.html">ten monostichs</a>
-    </div>
-    <div class="post-author">
-      by nicholas wilder forman
-    </div>
-    <div class="post-date">
-      march 31st, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="poem3.html">the miracle of psycho command power</a>
-    </div>
-    <div class="post-author">
-      by charlie romano
-    </div>
-    <div class="post-date">
-      march 23rd, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="poem2.html">It's really me</a>
-    </div>
-    <div class="post-author">
-      by sunny carroll
-    </div>
-    <div class="post-date">
-      march 11th, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="story4.html">A little bit about my powers</a>
-    </div>
-    <div class="post-author">
-      by shae sennett
-    </div>
-    <div class="post-date">
-      march 6th, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="poem1.html">EACH MORNING IS ALL MORNINGS</a>
-    </div>
-    <div class="post-author">
-      by rob brezsny
-    </div>
-    <div class="post-date">
-      march 2nd, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="story3.html">Janitor story</a>
-    </div>
-    <div class="post-author">
-      by brock bierly
-    </div>
-    <div class="post-date">
-      february 27th, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="story2.html">Tennis Paradise</a>
-    </div>
-    <div class="post-author">
-      by marielle depp
-    </div>
-    <div class="post-date">
-      february 23rd, 2026
-    </div>
-  </div>
-
-  <div class="post">
-    <div class="post-title">
-      <a href="story1.html">Safdie (intro)</a>
-    </div>
-    <div class="post-author">
-      by bernard cohen
-    </div>
-    <div class="post-date">
-      february 20th, 2026
-    </div>
-  </div>
-
+<main class="content-wrapper">
+  <!-- Posts -->
+  <div class="post"><div class="post-title"><a href="nonfiction1.html">remembering reels</a></div><div class="post-author">by agatha scaggiante</div><div class="post-date">april 3rd, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="poem4.html">ten monostichs</a></div><div class="post-author">by nicholas wilder forman</div><div class="post-date">march 31st, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="poem3.html">the miracle of psycho command power</a></div><div class="post-author">by charlie romano</div><div class="post-date">march 23rd, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="poem2.html">It's really me</a></div><div class="post-author">by sunny carroll</div><div class="post-date">march 11th, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="story4.html">A little bit about my powers</a></div><div class="post-author">by shae sennett</div><div class="post-date">march 6th, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="poem1.html">EACH MORNING IS ALL MORNINGS</a></div><div class="post-author">by rob brezsny</div><div class="post-date">march 2nd, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="story3.html">Janitor story</a></div><div class="post-author">by brock bierly</div><div class="post-date">february 27th, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="story2.html">Tennis Paradise</a></div><div class="post-author">by marielle depp</div><div class="post-date">february 23rd, 2026</div></div>
+  <div class="post"><div class="post-title"><a href="story1.html">Safdie (intro)</a></div><div class="post-author">by bernard cohen</div><div class="post-date">february 20th, 2026</div></div>
 </main>
 
-<img
-  src="https://i.ibb.co/v6fGrWk8/creepy.png"
-  alt="creepy"
-  class="creepy-image"
-/>
+<img src="https://i.ibb.co/v6fGrWk8/creepy.png" alt="creepy" class="creepy-image">
 
 </body>
 </html>
