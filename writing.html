@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/v6fGrWk8/creepy.png">
+  <meta charset="UTF-8">
+  <title>writing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      max-width: 680px;
+      margin: 60px auto;
+      line-height: 1.65;
+      letter-spacing: 0.2px;
+      color: #111;
+      text-align: center;
+      padding: 0 20px;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0000FF;
+      border-bottom: none;
+    }
+
+    a:hover { color: #0000FF; }
+
+    header {
+      margin: 60px auto;
+      padding: 48px 20px 32px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 300;
+      margin: 0 0 0.4em 0;
+      color: #0000FF;
+    }
+
+    nav a {
+      margin: 0 14px;
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+    }
+
+    #editor-wrap {
+      margin-top: 2em;
+      text-align: left;
+    }
+
+    #editor {
+      width: 100%;
+      min-height: 320px;
+      background: transparent;
+      border: none;
+      border-top: 1px solid #ddd;
+      outline: none;
+      resize: none;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.65;
+      letter-spacing: 0.2px;
+      color: #111;
+      padding: 18px 0;
+      overflow: hidden;
+    }
+
+    #editor::placeholder {
+      color: #bbb;
+      font-weight: 300;
+    }
+
+    #publish-btn {
+      display: block;
+      margin: 28px auto 0;
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      color: #0000FF;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    #publish-btn:hover { text-decoration: underline; }
+
+    /* Modal */
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.92);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #modal-overlay.open { display: flex; }
+
+    #modal {
+      text-align: center;
+      padding: 40px 32px;
+      max-width: 360px;
+      width: 90%;
+    }
+
+    #modal p {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: #111;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    #modal-actions {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .modal-btn {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    #confirm-btn { color: #0000FF; }
+    #confirm-btn:hover { text-decoration: underline; }
+    #cancel-btn { color: #999; }
+    #cancel-btn:hover { color: #111; }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #111;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><a href="index.html">creepy winky house</a></h1>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="submit.html">Submit</a>
+  </nav>
+</header>
+
+<div id="editor-wrap">
+  <textarea
+    id="editor"
+    placeholder="write something."
+    spellcheck="false"
+    autocomplete="off"
+  ></textarea>
+</div>
+
+<button id="publish-btn">publish writing</button>
+
+<div id="modal-overlay">
+  <div id="modal">
+    <p>send this to creepy winky house?</p>
+    <div id="modal-actions">
+      <button class="modal-btn" id="cancel-btn">not yet</button>
+      <button class="modal-btn" id="confirm-btn">send it</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  const editor = document.getElementById('editor');
+  const publishBtn = document.getElementById('publish-btn');
+  const modalOverlay = document.getElementById('modal-overlay');
+  const cancelBtn = document.getElementById('cancel-btn');
+  const confirmBtn = document.getElementById('confirm-btn');
+  const toast = document.getElementById('toast');
+
+  function resize() {
+    editor.style.height = 'auto';
+    editor.style.height = editor.scrollHeight + 'px';
+  }
+  editor.addEventListener('input', resize);
+  resize();
+
+  publishBtn.addEventListener('click', () => {
+    if (!editor.value.trim()) return;
+    modalOverlay.classList.add('open');
+  });
+
+  cancelBtn.addEventListener('click', () => modalOverlay.classList.remove('open'));
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) modalOverlay.classList.remove('open');
+  });
+
+  confirmBtn.addEventListener('click', () => {
+    const text = editor.value.trim();
+    if (!text) return;
+    const subject = encodeURIComponent('story submission');
+    const body = encodeURIComponent(text);
+    window.location.href = `mailto:creepywinkyhouse@gmail.com?subject=${subject}&body=${body}`;
+    modalOverlay.classList.remove('open');
+    showToast('sent.');
+  });
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+</script>
+
+</body>
+</html>
