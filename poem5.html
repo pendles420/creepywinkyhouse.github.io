@@ -16,11 +16,12 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden; /* Prevents unwanted side-scrolling */
     }
 
     header {
       text-align: center;
-      margin: 60px 0 3em 0;
+      margin: 60px 0 1em 0;
     }
 
     header h1 {
@@ -45,21 +46,20 @@
       color: #0000FF;
     }
 
-    /* FIX: Changed max-width to 95% of the screen for desktop visibility */
     .container {
-      width: 95vw; 
-      max-width: 1800px; 
+      width: 100%;
+      max-width: 1800px;
       margin: 0 auto;
-      padding: 0 24px;
       flex: 1;
-      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
     }
 
     .story-title {
       font-weight: 300;
       font-size: 26px;
       text-align: center;
-      margin-bottom: 0.4em;
+      margin-bottom: 0.2em;
     }
 
     .meta {
@@ -67,25 +67,24 @@
       font-size: 12px;
       letter-spacing: 0.6px;
       color: #111;
-      margin-bottom: 3em;
+      margin-bottom: 1em;
     }
 
-  .svg-wrapper {
-      margin-bottom: 3em;
+    .svg-wrapper {
       width: 100%;
-      display: flex;         /* Activates flexbox */
-      justify-content: center; /* Centers the SVG horizontally */
-      align-items: center;     /* Centers the SVG vertically if needed */
+      margin-bottom: 3em;
     }
 
+    /* THE DESKTOP FIX: Shifted 10% to the right */
     .svg-wrapper svg {
-      width: 100%;           /* Keeps it large */
-      max-width: 1600px;     /* Limits it so it doesn't get pixelated on giant screens */
+      width: 100%;
       height: auto;
       display: block;
+      margin-left: 10%; 
+      user-select: text;
+      -webkit-user-select: text;
     }
 
-    /* Target SVG text specifically to ensure the cursor changes */
     svg text, svg tspan {
       cursor: text !important;
       pointer-events: auto !important;
@@ -101,15 +100,18 @@
       margin-top: auto;
     }
 
-    footer a {
-      color: #0000FF;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .container {
+    /* THE IPHONE FIX: Removes the 10% shift and ensures it fills the screen */
+    @media (max-width: 800px) {
+      header h1 { font-size: 32px; }
+      
+      .svg-wrapper svg {
+        margin-left: 0; /* Remove the shift on small screens */
         width: 100%;
-        max-width: 95%;
+      }
+      
+      .container {
+        padding: 0 10px;
+        width: 100%;
       }
     }
   </style>
