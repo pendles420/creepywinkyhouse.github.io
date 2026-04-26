@@ -100,19 +100,33 @@
       margin-top: auto;
     }
 
-    /* IPHONE/MOBILE: Removes the desktop shift so it fills the screen width */
+   /* IPHONE/MOBILE: Over-expands the graphic for readability */
     @media (max-width: 800px) {
       header h1 { font-size: 32px; }
       
-      .svg-wrapper svg {
-        margin-left: 0; 
+      .container {
+        padding: 0; /* Remove container padding to allow full bleed */
+        width: 100%;
+        overflow-x: hidden; /* Prevents the site from wobbling horizontally */
+      }
+
+      .svg-wrapper {
+        display: flex;
+        justify-content: center;
         width: 100%;
       }
       
-      .container {
-        padding: 0 15px;
-        width: 100%;
-        box-sizing: border-box;
+      .svg-wrapper svg {
+        margin-left: 0; 
+        /* Forces the SVG to be 30% wider than the screen */
+        width: 130%; 
+        /* Centers the oversized SVG */
+        flex-shrink: 0; 
+        max-width: none;
+      }
+
+      .story-title, .meta {
+        padding: 0 15px; /* Keep text elements from hitting the screen edge */
       }
     }
   </style>
@@ -135,7 +149,7 @@
   </div>
 
   <div class="svg-wrapper">
-    <?xml version="1.0" encoding="UTF-8"?>
+       <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1698.65 1775.69">
   <rect width="1698.65" height="1775.69" style="fill: #fff;"/>
   <circle cx="853.33" cy="495.77" r="64.38" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 2px;"/>
@@ -988,7 +1002,9 @@
   <ellipse cx="1382.75" cy="1504.12" rx="36.99" ry="27.52" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 2px;"/>
   <circle cx="1402.64" cy="1510.31" r="14.99" transform="translate(-427.35 561.85) rotate(-19.72)" style="fill: #231f20;"/>
 </svg>
-    </div>
+
+
+     </div>
 
 </div>
 
@@ -998,3 +1014,4 @@
 
 </body>
 </html>
+
