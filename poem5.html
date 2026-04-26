@@ -114,6 +114,30 @@
         width: 100%;
       }
     }
+    /* DESKTOP SETTINGS */
+.svg-wrapper svg {
+  width: 100%;           /* Keeps it centered on desktop */
+  height: auto;
+  display: block;
+  margin-left: 10%;      /* Your perfect desktop shift */
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* IPHONE SETTINGS */
+@media (max-width: 800px) {
+  .svg-wrapper {
+    overflow-x: visible; 
+    justify-content: center;
+    display: flex;
+  }
+
+  .svg-wrapper svg {
+    margin-left: 0;      /* Removes the desktop shift for mobile */
+    width: 130%;         /* Makes it 30% bigger ONLY on mobile */
+    max-width: none;
+  }
+}
   </style>
 </head>
 
